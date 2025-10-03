@@ -20,8 +20,14 @@ class DataListAdapter(val dataList: ArrayList<DataUkur>):RecyclerView.Adapter<Da
     }
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-holder.binding.txtAge.text = dataList[position].umur.toString()
+        holder.binding.txtAge.text = dataList[position].umur.toString()
         holder.binding.txtHeight.text = dataList[position].tinggi.toString()
         holder.binding.txtWeight.text = dataList[position].berat.toString()
+    }
+
+    fun updateDataList(newDataList: ArrayList<DataUkur>){
+        dataList.clear()
+        dataList.addAll(newDataList)
+        this.notifyDataSetChanged()
     }
 }

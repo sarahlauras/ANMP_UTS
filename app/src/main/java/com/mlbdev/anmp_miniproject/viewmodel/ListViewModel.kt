@@ -8,12 +8,16 @@ import com.mlbdev.anmp_miniproject.model.DataUkur
 
 class ListViewModel(app: Application):AndroidViewModel(app) {
     val dataLD = MutableLiveData<ArrayList<DataUkur>>()
+    val loadingLD = MutableLiveData<Boolean>()
 
     fun loadData(){
+        loadingLD.value = true
+
         dataLD.value = arrayListOf(
             DataUkur(162, 50, 21),
             DataUkur(155, 49, 22),
             DataUkur(160, 46, 21)
         )
+        loadingLD.value = false
     }
 }
