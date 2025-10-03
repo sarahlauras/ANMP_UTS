@@ -1,14 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.FragmentUkur">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/txtView"
+            android:layout_width="190dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="100dp"
+            android:text="Berat Badan (Kg)"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtBerat"
+            android:layout_width="282dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Berat Badan"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.178"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtView" />
+
+        <TextView
+            android:id="@+id/txtview2"
+            android:layout_width="216dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:text="Tinggi Badan (Cm)"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtBerat" />
+
+        <EditText
+            android:id="@+id/txtTinggi"
+            android:layout_width="290dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Tinggi Badan"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.19"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtview2" />
+
+        <TextView
+            android:id="@+id/txtview"
+            android:layout_width="216dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:text="Umur (Tahun)"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTinggi" />
+
+        <EditText
+            android:id="@+id/txtUmur"
+            android:layout_width="299dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Umur"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.205"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtview" />
+
+        <Button
+            android:id="@+id/btnUkur"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="163dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="20dp"
+            android:text="Tambah Data"
+            android:textColorLink="@color/design_default_color_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.092"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUmur" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
