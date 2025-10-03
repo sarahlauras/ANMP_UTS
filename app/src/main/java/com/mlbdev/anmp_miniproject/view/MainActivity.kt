@@ -14,25 +14,27 @@ import com.mlbdev.anmp_miniproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var navController: NavController
+    //private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        navController = (supportFragmentManager.findFragmentById(R.id.hostFragment)
-                        as NavHostFragment).navController
-        NavigationUI.setupActionBarWithNavController(this,navController,binding.drawerLayout)
-
-        NavigationUI.setupWithNavController(binding.navView, navController)
-
-        binding.bottomNav.setupWithNavController(navController)
+//        navController = (supportFragmentManager.findFragmentById(R.id.hostFragment)
+//                        as NavHostFragment).navController
+//        NavigationUI.setupActionBarWithNavController(this,navController,binding.drawerLayout)
+//
+//        NavigationUI.setupWithNavController(binding.navView, navController)
+//
+//        binding.bottomNav.setupWithNavController(navController)
+//        binding.bottomNav.setupWithNavController(navController)
 
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, binding.drawerLayout)
-                || super.onSupportNavigateUp()
+//        return NavigationUI.navigateUp(navController, binding.drawerLayout)
+//                || super.onSupportNavigateUp()
+        return super.onSupportNavigateUp()
     }
 }
