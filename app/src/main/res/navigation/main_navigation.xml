@@ -8,16 +8,16 @@
     <fragment
         android:id="@+id/itemUkur"
         android:name="com.mlbdev.anmp_miniproject.view.FragmentUkur"
-        android:label="fragment_ukur"
+        android:label="Ukur Berat &amp; Tinggi Badan"
         tools:layout="@layout/fragment_ukur" />
     <fragment
         android:id="@+id/itemData"
         android:name="com.mlbdev.anmp_miniproject.view.FragmentData"
-        android:label="fragment_data"
+        android:label="Data Berat &amp;Tinggi Badan"
         tools:layout="@layout/fragment_data" />
     <fragment
         android:id="@+id/itemProfil"
         android:name="com.mlbdev.anmp_miniproject.view.FragmentProfilAnak"
-        android:label="fragment_profil_anak"
+        android:label="Profil Anak"
         tools:layout="@layout/fragment_profil_anak" />
 </navigation>
