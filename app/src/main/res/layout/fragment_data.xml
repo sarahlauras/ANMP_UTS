@@ -30,10 +30,11 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:layout_weight="2"
                     android:text="Age"
                     android:textAlignment="center"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <Space
@@ -45,10 +46,11 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:layout_weight="2"
                     android:text="Height"
                     android:textAlignment="center"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <Space
@@ -60,11 +62,13 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:layout_weight="2"
                     android:text="Weight"
                     android:textAlignment="center"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
+
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
