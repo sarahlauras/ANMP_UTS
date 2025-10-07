@@ -1,6 +1,7 @@
 package com.mlbdev.anmp_miniproject.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,43 +20,58 @@ class ListViewModel(app: Application):AndroidViewModel(app) {
         loadingLD.value = true
         errorLD.value = false
 
-        try{
+        try {
             val filehelper = FileHelper(getApplication())
             val dataJson = filehelper.readFromFile()
 
             if (!dataJson.isNullOrEmpty()) {
-                val sType = object: TypeToken<List<DataUkur>>() {}.type
+                val sType = object : TypeToken<List<DataUkur>>() {}.type
                 val hasil = Gson().fromJson<List<DataUkur>>(dataJson, sType)
                 dataLD.value = ArrayList(hasil)
-            }else{
+                Log.d( "getdatahasil" ,hasil.toString())
+            } else {
                 dataLD.value = arrayListOf()
             }
-        }catch(e: Exception) {
+            loadingLD.value = false
+
+        } catch (e: Exception) {
             e.printStackTrace()
             dataLD.value = arrayListOf()
             loadingLD.value = false
+            errorLD.value = true
         }
     }
 
+
     fun addData(newData: DataUkur){
         val fileHelper = FileHelper(getApplication())
+        val sType = object : TypeToken<List<DataUkur>>() {}.type
+
         val dataJson = fileHelper.readFromFile()
 
-        val currentList =
-            if (dataJson.isNotEmpty()) {
-                val sType = object: TypeToken<List<DataUkur>>() {}.type
+        val currentList: ArrayList<DataUkur> = if (dataJson.isNotEmpty()) {
+            try {
                 ArrayList(Gson().fromJson<List<DataUkur>>(dataJson, sType))
-            } else {
+            } catch (e: Exception) {
                 ArrayList()
             }
+        } else {
+            ArrayList()
+        }
 
         currentList.add(newData)
 
-        // simpan ke file JSON
         val updatedJson = Gson().toJson(currentList)
         fileHelper.writeToFile(updatedJson)
-
-        // update LiveData biar UI refresh
         dataLD.value = currentList
+        testSaveFile()
     }
+
+    fun testSaveFile(){
+        val filehelper = FileHelper(getApplication())
+        val content = filehelper.readFromFile()
+        Log.d("print file ", content)
+        Log.d("print file ", filehelper.getFilePath())
+    }
+
 }
