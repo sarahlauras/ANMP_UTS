@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.mlbdev.anmp_miniproject.R
 import com.mlbdev.anmp_miniproject.databinding.FragmentUkurBinding
+import com.mlbdev.anmp_miniproject.model.DataUkur
 import com.mlbdev.anmp_miniproject.viewmodel.ListViewModel
 
 class FragmentUkur : Fragment() {
@@ -36,6 +38,10 @@ class FragmentUkur : Fragment() {
             viewmodel.addData(newData)
 
             Toast.makeText(requireContext(), "Data berhasil disimpan!", Toast.LENGTH_SHORT).show()
+
+            binding.txtUmur.text.clear()
+            binding.txtBerat.text.clear()
+            binding.txtTinggi.text.clear()
         }
     }
 }

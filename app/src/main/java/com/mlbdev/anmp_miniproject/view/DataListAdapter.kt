@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import com.mlbdev.anmp_miniproject.databinding.DataListItemBinding
+import com.mlbdev.anmp_miniproject.model.DataUkur
 
 
 class DataListAdapter(val dataList: ArrayList<DataUkur>):RecyclerView.Adapter<DataListAdapter.DataViewHolder>(){
@@ -25,7 +26,7 @@ class DataListAdapter(val dataList: ArrayList<DataUkur>):RecyclerView.Adapter<Da
         holder.binding.txtWeight.text = dataList[position].weight.toString()
     }
 
-    fun updateDataList(newDataList: ArrayList<DataUkur>){
+    fun updateDataList(newDataList: List<DataUkur>){
         dataList.clear()
         dataList.addAll(newDataList)
         this.notifyDataSetChanged()

@@ -31,7 +31,7 @@ class FragmentData : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
-        viewModel.loadData()
+        viewModel.refresh()
 
         binding.recViewData.layoutManager = LinearLayoutManager(context)
         binding.recViewData.adapter = dataListAdapter
@@ -53,5 +53,8 @@ class FragmentData : Fragment() {
                 binding.progressLoad.visibility = View.INVISIBLE
             }
         })
+
+
+
     }
 }

@@ -2,6 +2,7 @@ package com.mlbdev.anmp_miniproject.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 data class DataUkur (
@@ -11,4 +12,7 @@ data class DataUkur (
     var height: Int,
     @ColumnInfo(name="weight")
     var weight: Int
-)
+){
+    @PrimaryKey(autoGenerate = true)
+    var uuid:Int = 0
+}

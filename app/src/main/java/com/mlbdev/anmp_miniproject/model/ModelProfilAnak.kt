@@ -12,4 +12,7 @@ data class DataProfilAnak (
     var dob: Int,
     @ColumnInfo(name="gender")
     var gender: Int
-)
+){
+    @PrimaryKey(autoGenerate = true)
+    var uuid:Int = 0
+}
