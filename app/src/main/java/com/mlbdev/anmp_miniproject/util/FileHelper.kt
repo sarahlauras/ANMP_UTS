@@ -1,6 +1,7 @@
 package com.mlbdev.anmp_miniproject.util
 
 import android.content.Context
+import android.util.Log
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -41,6 +42,7 @@ class FileHelper (val context: Context){
         } catch (e: IOException) {
             e.printStackTrace().toString()
         }
+
     }
 
     fun getFilePath():String{

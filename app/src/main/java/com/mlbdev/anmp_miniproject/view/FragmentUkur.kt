@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.mlbdev.anmp_miniproject.R
 import com.mlbdev.anmp_miniproject.databinding.FragmentUkurBinding
-import com.mlbdev.anmp_miniproject.model.DataUkur
 import com.mlbdev.anmp_miniproject.viewmodel.ListViewModel
 
 class FragmentUkur : Fragment() {

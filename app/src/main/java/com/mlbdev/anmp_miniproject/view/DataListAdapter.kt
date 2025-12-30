@@ -2,7 +2,6 @@ package com.mlbdev.anmp_miniproject.view
 
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
-import com.mlbdev.anmp_miniproject.model.DataUkur
 import android.view.ViewGroup
 import com.mlbdev.anmp_miniproject.databinding.DataListItemBinding
 

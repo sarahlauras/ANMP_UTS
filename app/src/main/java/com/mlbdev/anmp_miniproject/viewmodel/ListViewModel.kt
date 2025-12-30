@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-import com.mlbdev.anmp_miniproject.model.DataUkur
 import com.mlbdev.anmp_miniproject.util.FileHelper
 
 class ListViewModel(app: Application):AndroidViewModel(app) {
