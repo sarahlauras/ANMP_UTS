@@ -4,13 +4,9 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.mlbdev.anmp_miniproject.model.DataUkur
-
 import com.mlbdev.anmp_miniproject.util.FileHelper
-import com.mlbdev.anmp_miniproject.util.buildDB
+import com.mlbdev.anmp_miniproject.util.buildUkurDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -31,7 +27,7 @@ class ListViewModel(app: Application):AndroidViewModel(app), CoroutineScope {
         errorLD.value = false
 
         launch {
-            val db = buildDB(getApplication())
+            val db = buildUkurDB(getApplication())
             dataLD.postValue(db.ukurDao().SelectAll())
             loadingLD.postValue(false)
         }
@@ -65,7 +61,7 @@ class ListViewModel(app: Application):AndroidViewModel(app), CoroutineScope {
 
     fun addData(newData: DataUkur){
         launch {
-            val db = buildDB(getApplication())
+            val db = buildUkurDB(getApplication())
             db.ukurDao().InsertAll(newData)
         }
 

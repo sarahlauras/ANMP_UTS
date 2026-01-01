@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.mlbdev.anmp_miniproject.util.DB_NAME
+import com.mlbdev.anmp_miniproject.util.DB_UKUR_NAME
 
 @Database(entities = [DataUkur::class], version = 1)
 abstract class UkurDatabase:RoomDatabase() {
@@ -18,7 +18,7 @@ abstract class UkurDatabase:RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 UkurDatabase::class.java,
-                DB_NAME
+                DB_UKUR_NAME
             ).build()
 
         operator fun invoke(context: Context){
