@@ -7,12 +7,12 @@ import androidx.room.PrimaryKey
 @Entity
 data class DataProfilAnak (
     @ColumnInfo(name="name")
-    var name: Int,
+    var name: String,
     @ColumnInfo(name="dob")
-    var dob: Int,
+    var dob: String,
     @ColumnInfo(name="gender")
-    var gender: Int
+    var gender: String
 ){
-    @PrimaryKey(autoGenerate = true)
-    var uuid:Int = 0
+    @PrimaryKey
+    var id:Int = 1
 }

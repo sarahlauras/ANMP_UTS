@@ -1,0 +1,34 @@
+package com.mlbdev.anmp_miniproject.model
+
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import com.mlbdev.anmp_miniproject.util.DB_PROFIL_NAME
+
+@Database(entities = [DataProfilAnak::class], version = 2)
+abstract class ProfilAnakDatabase:RoomDatabase() {
+    abstract fun profilAnakDao():ProfilAnakDao
+
+    companion object{
+        @Volatile private var instance: ProfilAnakDatabase ?= null
+        private var LOCK = Any()
+
+        fun buildDatabase(context: Context) = Room.databaseBuilder(
+            context.applicationContext,
+            ProfilAnakDatabase::class.java,
+            DB_PROFIL_NAME
+        ).fallbackToDestructiveMigration().build()
+
+        operator fun invoke(context:Context) {
+            if(instance == null) {
+                synchronized(LOCK) {
+                    instance ?: buildDatabase(context).also {
+                        instance = it
+                    }
+                }
+            }
+        }
+
+    }
+}
