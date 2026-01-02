@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.mlbdev.anmp_miniproject.util.DB_UKUR_NAME
 
-@Database(entities = [DataUkur::class], version = 1)
+@Database(entities = [DataUkur::class], version = 2)
 abstract class UkurDatabase:RoomDatabase() {
     abstract fun ukurDao(): UkurDao
 
@@ -19,11 +19,14 @@ abstract class UkurDatabase:RoomDatabase() {
                 context.applicationContext,
                 UkurDatabase::class.java,
                 DB_UKUR_NAME
-            ).build()
+            )
+                .fallbackToDestructiveMigration()
+                .build()
+
 
         operator fun invoke(context: Context){
-            if(instance == null){
-                synchronized(LOCK){
+            if(instance == null) {
+                synchronized(LOCK) {
                     instance ?: buildDatabase(context).also {
                         instance = it
                     }

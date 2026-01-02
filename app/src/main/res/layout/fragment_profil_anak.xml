@@ -1,127 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.FragmentProfilAnak">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <data>
+        <variable
+            name="profilanak"
+            type="com.mlbdev.anmp_miniproject.model.DataProfilAnak" />
+        <variable
+        name="listener"
+        type="com.mlbdev.anmp_miniproject.view.ProfilanakListener" />
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".view.FragmentProfilAnak">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="100dp"
-                android:text="Nama"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/txtNama"
-                android:layout_width="290dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:hint="Nama"
-                android:inputType="text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="20dp"
-                android:text="Tanggal Lahir"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtNama" />
-
-            <EditText
-                android:id="@+id/txtTanggalLahir"
-                android:layout_width="290dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:hint="Tanggal Lahir"
-                android:inputType="text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="26dp"
-                android:text="Jenis Kelamin"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTanggalLahir" />
-
-            <RadioGroup
-                android:id="@+id/rdGender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-                <RadioButton
-                    android:id="@+id/rdbLaki2"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
-                    android:layout_marginTop="15dp"
-                    android:text="Laki-laki"
-                    android:textSize="16sp"
+                    android:layout_marginTop="100dp"
+                    android:text="Nama"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <RadioButton
-                    android:id="@+id/rdbPerempuan"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/txtNama"
+                    android:text="@={profilanak.name}"
+                    android:layout_width="290dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="15dp"
-                    android:text="Perempuan"
-                    android:textSize="16sp" />
-            </RadioGroup>
+                    android:ems="10"
+                    android:hint="Nama"
+                    android:inputType="text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-            <Button
-                android:id="@+id/btnSimpan"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginEnd="60dp"
-                android:layout_marginBottom="44dp"
-                android:text="Simpan"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Tanggal Lahir"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNama" />
 
-        </LinearLayout>
-    </ScrollView>
+                <EditText
+                    android:id="@+id/txtTanggalLahir"
+                    android:text="@={profilanak.dob}"
+                    android:layout_width="290dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="15dp"
+                    android:ems="10"
+                    android:hint="Tanggal Lahir"
+                    android:inputType="text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-</FrameLayout>
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="26dp"
+                    android:text="Jenis Kelamin"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTanggalLahir" />
+
+                <RadioGroup
+                    android:id="@+id/rdGender"
+                    android:checkedButton="@{profilanak.gender.equals(`Laki-laki`) ? @id/rdbLaki2 : @id/rdbPerempuan}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+                    <RadioButton
+                        android:id="@+id/rdbLaki2"
+                        android:onClick="@{()->listener.OnGenderSelected(`Laki-laki`)}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="48dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Laki-laki"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                    <RadioButton
+                        android:id="@+id/rdbPerempuan"
+                        android:onClick="@{()->listener.OnGenderSelected(`Perempuan`)}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="48dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Perempuan"
+                        android:textSize="16sp" />
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/btnSimpan"
+                    android:onClick="@{()->listener.OnEditClick(profilanak)}"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginBottom="44dp"
+                    android:text="Simpan"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</layout>

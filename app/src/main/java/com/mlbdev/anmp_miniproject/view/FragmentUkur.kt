@@ -13,7 +13,7 @@ import com.mlbdev.anmp_miniproject.databinding.FragmentUkurBinding
 import com.mlbdev.anmp_miniproject.model.DataUkur
 import com.mlbdev.anmp_miniproject.viewmodel.ListViewModel
 
-class FragmentUkur : Fragment() {
+class FragmentUkur : Fragment(), DataUkurListener {
     private lateinit var binding: FragmentUkurBinding
     private lateinit var viewmodel: ListViewModel
 
@@ -29,19 +29,29 @@ class FragmentUkur : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewmodel = ViewModelProvider(this).get(ListViewModel::class.java) //cara nge init view model
 
-        binding.btnUkur.setOnClickListener {
-            val age = binding.txtUmur.text.toString().toInt()
-            val weight = binding.txtBerat.text.toString().toInt()
-            val height = binding.txtTinggi.text.toString().toInt()
+        binding.datanak = DataUkur("","","")
+        binding.listener = this
 
-            val newData = DataUkur(age, weight, height)
-            viewmodel.addData(newData)
+//        binding.btnUkur.setOnClickListener {
+//            val age = binding.txtUmur.text.toString()
+//            val weight = binding.txtBerat.text.toString()
+//            val height = binding.txtTinggi.text.toString()
+//
+//            val newData = DataUkur(age, weight, height)
+//            viewmodel.addData(newData)
+//
+//            Toast.makeText(requireContext(), "Data berhasil disimpan!", Toast.LENGTH_SHORT).show()
+//
+//            binding.txtUmur.text.clear()
+//            binding.txtBerat.text.clear()
+//            binding.txtTinggi.text.clear()
+//        }
+    }
 
-            Toast.makeText(requireContext(), "Data berhasil disimpan!", Toast.LENGTH_SHORT).show()
+    override fun onTambahClick(obj: DataUkur) {
+        viewmodel.addData(obj)
+        Toast.makeText(requireContext(), "Data berhasil disimpan!", Toast.LENGTH_SHORT).show()
+        binding.datanak = DataUkur("", "", "")
 
-            binding.txtUmur.text.clear()
-            binding.txtBerat.text.clear()
-            binding.txtTinggi.text.clear()
-        }
     }
 }

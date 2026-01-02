@@ -7,11 +7,11 @@ import androidx.room.PrimaryKey
 @Entity
 data class DataUkur (
     @ColumnInfo(name="age")
-    var age: Int,
+    var age: String,
     @ColumnInfo(name="height")
-    var height: Int,
+    var height: String,
     @ColumnInfo(name="weight")
-    var weight: Int
+    var weight: String
 ){
     @PrimaryKey(autoGenerate = true)
     var uuid:Int = 0

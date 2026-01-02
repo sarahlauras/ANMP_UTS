@@ -16,7 +16,7 @@ import com.mlbdev.anmp_miniproject.model.ProfilAnakDao
 import com.mlbdev.anmp_miniproject.util.buildProfilDB
 import com.mlbdev.anmp_miniproject.viewmodel.ProfilAnakViewModel
 
-class FragmentProfilAnak : Fragment() {
+class FragmentProfilAnak : Fragment(), ProfilanakListener {
     private lateinit var binding: FragmentProfilAnakBinding
     //private lateinit var sharedPreferences: SharedPreferences
     private lateinit var viewModel: ProfilAnakViewModel
@@ -36,13 +36,16 @@ class FragmentProfilAnak : Fragment() {
         //sharedPreferences = requireActivity().getSharedPreferences("ProfilAnak", Context.MODE_PRIVATE)
         viewModel = ViewModelProvider(this).get(ProfilAnakViewModel::class.java)
 
+        binding.listener = this
+        binding.lifecycleOwner = viewLifecycleOwner
+
         viewModel.refresh()
 
         observeViewModel()
 
-        binding.btnSimpan.setOnClickListener {
-            simpanProfil()
-        }
+//        binding.btnSimpan.setOnClickListener {
+//            simpanProfil()
+//        }
 //        profilAnakDao = buildProfilDB(requireContext())
 //        binding.txtNama.setText(sharedPreferences.getString("nama",""))
 //        binding.txtTanggalLahir.setText(sharedPreferences.getString("tanggal",""))
@@ -73,16 +76,18 @@ class FragmentProfilAnak : Fragment() {
 
     private fun observeViewModel(){
         viewModel.profilLD.observe(viewLifecycleOwner){
-            profil ->
-            currentProfil = profil
-            binding.txtNama.setText(profil.name)
-            binding.txtTanggalLahir.setText(profil.dob)
-
-            if(profil.gender == "Laki-laki"){
-                binding.rdGender.check(binding.rdbLaki2.id)
-            }else{
-                binding.rdGender.check(binding.rdbPerempuan.id)
-            }
+            binding.profilanak = it
+            currentProfil = it
+//            profil ->
+//            currentProfil = profil
+//            binding.txtNama.setText(profil.name)
+//            binding.txtTanggalLahir.setText(profil.dob)
+//
+//            if(profil.gender == "Laki-laki"){
+//                binding.rdGender.check(binding.rdbLaki2.id)
+//            }else{
+//                binding.rdGender.check(binding.rdbPerempuan.id)
+//            }
         }
     }
 
@@ -104,5 +109,15 @@ class FragmentProfilAnak : Fragment() {
             viewModel.updateProfil(updatedProfil)
             Toast.makeText(requireContext(), "Profil berhasil diupdate", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun OnGenderSelected(gender: String) {
+        binding.profilanak?.gender = gender
+    }
+
+    override fun OnEditClick(obj: DataProfilAnak) {
+        viewModel.updateProfil(obj)
+        Toast.makeText(requireContext(), "Data berhasil disimpan!", Toast.LENGTH_SHORT).show()
+        //binding.profilanak = DataProfilAnak("","","")
     }
 }
